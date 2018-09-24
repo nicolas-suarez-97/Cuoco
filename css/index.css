@@ -1,0 +1,120 @@
+/* single pin styles */
+.pin {
+    background-color: #FFFFFF;
+    box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+    border-radius: 10px 10px 10px 10px;
+    float: left;
+    font-size: 11px;
+    margin: 15px 15px 15px 15px;
+    padding: 10px 10px 10px;
+    position: relative;
+    width: 192px;
+}
+.pin .holder {
+    position: relative;
+}
+.pin .actions {
+    left: -8px;
+    position: absolute;
+    top: -8px;
+    z-index: 1;
+}
+.pin .actions a {
+    clear: none;
+    display: none;
+    float: left;
+    margin: 5px 5px 5px 5px;
+}
+.pin:hover .actions a {
+    display: block;
+}
+.pin .image {
+    background-color: #F2F0F0;
+    border-radius: 10px 10px 10px 10px;
+    text-decoration: none;
+}
+
+.pin .image img {
+    border-radius: 10px 10px 10px 10px;
+    max-width: 192px;
+    min-height: 215px;
+    opacity: 1;
+}
+.pin .desc {
+
+    overflow: hidden;
+    word-wrap: break-word;
+}
+@media screen and (max-width: 700px) {
+
+    .pin {
+        background-color: #FFFFFF;
+        box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+        border-radius: 10px 10px 10px 10px;
+        float: left;
+        font-size: 11px;
+        margin: 15px ;
+        padding: 10px ;
+        position: relative;
+        max-width: 80px;
+        min-height: 95px;
+    }
+    .pin .image img {
+        border-radius: 10px 10px 10px 10px;
+        max-width: 80px;
+        min-height: 95px;
+        opacity: 1;
+    }
+    /* photo pins - general styles */
+    .main_container {
+    margin: 0 auto;
+    border-radius: 10px 10px 10px 10px;
+    position: relative;
+    }
+
+}
+
+@media screen and (max-width: 600px) {
+
+    .pin {
+        background-color: #FFFFFF;
+        box-shadow: 0 1px 3px rgba(34, 25, 25, 0.4);
+        border-radius: 10px 10px 10px 10px;
+        float: left;
+        font-size: 11px;
+        margin: 15px ;
+        padding: 10px ;
+        position: relative;
+        max-width: 100px;
+        min-height: 110px;
+    }
+    .pin .image img {
+        border-radius: 10px 10px 10px 10px;
+        max-width: 100px;
+        min-height: 110px;
+        opacity: 1;
+    }
+
+}
+
+
+/* Set a style for all buttons */
+.button {
+    background-color: orange;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 50px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 30%;
+  }
+  
+  /* Add a hover effect for buttons */
+ .button:hover {
+    opacity: 0.8;
+  }
+
+ 
+  
+  

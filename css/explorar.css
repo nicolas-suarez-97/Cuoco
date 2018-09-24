@@ -1,0 +1,109 @@
+/*TODO PARA LA PARTE DE EXPLORAR JUJUJU*/
+
+/* Add padding BETWEEN each column (if you want) */
+.row,
+.row > .column {
+    padding: 5px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 18%;
+    display: none; /* Hide columns by default */
+
+}
+
+/* Clear floats after rows */ 
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+/* Content */
+.content {
+    float: left;
+    background-color: rgb(255, 255, 255);
+    padding: 9px;
+    border-radius: 10px 10px 10px 10px;
+    position: relative; 
+    width: auto; 
+    margin-right: auto;
+	margin-left: auto;
+	margin: 0 auto; 
+  -webkit-transition: all 1s ease;
+  -moz-transition: all 1s ease;
+  -o-transition: all 1s ease;
+  transition: all 1s ease;	
+}
+
+/* The "show" class is added to the filtered elements */
+.show {
+    display: block;
+    position: relative;
+}
+
+/* Style the buttons */
+.btn {
+  border: none;
+  border-radius: 10px 10px 10px 10px;
+  outline: none;
+  padding: 10px 40px;
+  background-color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'Overlock';
+  margin-bottom:5px;
+  margin-top: 10px;
+  margin-left: 5px;
+
+}
+
+/* Add a grey background color on mouse-over */
+.btn:hover {
+  background-color: orange;
+  color: #FFFFFF;
+}
+
+/* Add a dark background color to the active button */
+.btn.active {
+  background-color: orange;
+  color: white;
+}
+
+img{
+    border-radius: 10px;
+    min-width: auto;
+    min-height:auto ;
+}
+
+@media only screen and (max-width : 900px) {
+
+    .content {
+        background-color: rgb(255, 255, 255);
+        padding: 9px;
+        border-radius: 10px 10px 10px 10px;
+        max-width: 100px;
+        font-size: 12px;
+    }
+
+    .column {
+    float: left;
+    width: 30%;
+    align-content: center;
+    }
+    /* Style the buttons */
+.btn {
+    border: none;
+    border-radius: 10px 10px 10px 10px;
+    outline: none;
+    padding: 10px 20px;
+    background-color: rgb(255, 255, 255);
+    cursor: pointer;
+    font-size: 12px;
+    font-family: 'Overlock';
+  }
+  
+
+}
