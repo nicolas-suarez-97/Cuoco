@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 $titulo = $_POST['titulo'];        
 $enlace = $_POST['enlace'];
@@ -10,6 +10,7 @@ $sql_agregar = 'INSERT INTO articulos (titulo,link,descripcion) VALUES (?,?,?)';
 $sentencia_agregar = $pdo->prepare($sql_agregar);
 
 
+header('Location: ../index.php');
 if($sentencia_agregar->execute(array($titulo,$enlace,$descripcion))){
     echo '<br> Agregado <br>';
 }else{
@@ -19,5 +20,4 @@ if($sentencia_agregar->execute(array($titulo,$enlace,$descripcion))){
 $sentencia_agregar=null;
 $pdo = null; 
 
-header('Location: ../index.php');
 

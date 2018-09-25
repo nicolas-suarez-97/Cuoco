@@ -1,3 +1,13 @@
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-126410717-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-126410717-1');
+</script>
+
 <!DOCTYPE html>
 <html lang="en" >
     <head>
@@ -33,11 +43,12 @@
                     <div class="column">
                         <h1 style="color:black; text-transform:uppercase;margin:1cm;"  align="center">Bienvenido <?php echo $_SESSION['admin']?> </h1>                     
                     </div>
-                    <div class ="row" align="center">             
+                    <div class ="row" align="center">   
                         <a href=subir.php class="button">Subir Contenido</a>
                     </div>
                 </div>
             </div>
+        <br>
         <?php endif?>
         <!-- main container -->
         <div class="main_container" >

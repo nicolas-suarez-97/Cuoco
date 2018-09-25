@@ -1,8 +1,6 @@
 <?php
-    session_start();
-
+session_start();
 ?>
-
 <!DOCTYPE html>
 <html lang="en" >
     <head>
@@ -63,7 +61,7 @@
             </li>
             <?php else:?>
             <li>
-                <a href=php/cerrar.php> <i class="fas "style="font-size:18px;"></i> Cerrar Sessión</a>
+                <a href=php/cerrar.php> <i class="fas fa-sign-out-alt "style="font-size:18px;"></i> Cerrar Sesión</a>
             </li>
             <?php endif?>
 
