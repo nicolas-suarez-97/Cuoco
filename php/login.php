@@ -14,6 +14,7 @@ $sentencia->execute(array($usuario_login));
 $resultado = $sentencia->fetch();
 
 $nombre = $resultado['nombre'];
+$email = $resultado['email'];
 
 //var_dump($resultado);
 
@@ -26,7 +27,7 @@ if(!$resultado){
 
 if(password_verify($contrasena_login,$resultado['contrasena'])){
     //contraseñas iguales
-    $_SESSION['admin']=$nombre;
+    $_SESSION['admin']=$email;
     
     header('Location: ../index.php');
 

@@ -1,3 +1,24 @@
+<?php
+include_once 'php/conexion.php';
+
+if($_GET){
+  $id = $_GET['id'];
+  $sql_unico = 'SELECT * FROM fotos WHERE id=?';
+  $gsent_unico = $pdo->prepare($sql_unico);
+  $gsent_unico->execute(array($id));
+  
+  $resultado_unico = $gsent_unico->fetch();  
+}
+
+//$sql_leer = 'SELECT * FROM fotos WHERE categoria=?';
+$sql_leer = 'SELECT * FROM fotos ';
+$gsent = $pdo->prepare($sql_leer);
+$gsent->execute();
+//$gsent->execute(array($resultado_unico['categoria']));
+
+$resultado = $gsent->fetchAll();
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
     <head>
@@ -33,13 +54,12 @@
 
   <div class="w3-row-padding w3-content" style="max-width:1400px">
   <div class="w3-twothird">
-    <img src="photos/pic1.jpg" alt="ejemplo" style="width:50%" class="imagenPrin">
+    <img src="uploads/<?php echo $resultado_unico['nombre_foto'];?>" alt="ejemplo" style="width:50%" class="imagenPrin">
     <br>
     <br>
-    <h2>Frutas de hoy en día</h2>
+    <h2><?php echo $resultado_unico['titulo'];?></h2>
     <div class="w3-justify">
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+      <?php echo $resultado_unico['descripcion'];?>
     </div>
   </div>
   <br>
@@ -50,14 +70,12 @@
     <div class="w3-container w3-light-grey">
       <h2>Te podría interesar...</h2>
       <br>
-      <div class="grid-container">
-        <div class="grid-item"><a href=infoFoto.php><img src="photos/pic10.jpg" class="imagen"></a></div>
-        <div class="grid-item"><a href=infoFoto.php><img src="photos/pic9.jpg" class="imagen"></a></div>
-        <div class="grid-item"><a href=infoFoto.php><img src="photos/pic8.jpg" class="imagen"></a></div>
-        <div class="grid-item"><a href=infoFoto.php><img src="photos/pic7.jpg" class="imagen"></a></div>
-        <div class="grid-item"><a href=infoFoto.php><img src="photos/pic6.jpg" class="imagen"></a></div>
-        <div class="grid-item"><a href=infoFoto.php><img src="photos/pic5.jpg" class="imagen"></a></div>
-
+      <div class="grid-container">       
+        <?php foreach($resultado as $res):?>
+          <?php if($res['id']!=$resultado_unico['id']):?>
+          <div class="grid-item"><a href=infoFoto.php?id=<?php echo $res['id']?>><img src="uploads/<?php echo $res['nombre_foto']?>" class="imagen"></a></div>
+          <?php endif?>
+        <?php endforeach?>
       </div>
 
     </div>

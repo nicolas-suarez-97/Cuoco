@@ -5,7 +5,7 @@ $usuario = 'root';
 $pass = '';
 
 try{
-    $pdo = new PDO($link,$usuario,$pass);
+    $db = new mysqli("localhost","root","","cuoco");
     
 
     //echo 'Conectado <br>';

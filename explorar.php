@@ -1,3 +1,17 @@
+<?php
+include_once 'php/conexion.php';
+
+$sql_categ = 'SELECT DISTINCT categoria FROM fotos';
+$gsent = $pdo->prepare($sql_categ);
+$gsent->execute();
+$resultado_categ = $gsent->fetchAll();
+
+$sql_leer = 'SELECT * FROM fotos ORDER BY fecha DESC';
+$gsent = $pdo->prepare($sql_leer);
+$gsent->execute();
+$resultado = $gsent->fetchAll();
+
+?>
 <!DOCTYPE html>
 <html lang="en" >
     <head>
@@ -39,78 +53,23 @@
       });
 
   </script>
-  <button class="btn" onclick="filterSelection('frutas')"> Frutas </button>
-  <button class="btn" onclick="filterSelection('restaurantes')"> Restaurantes </button>
-  <button class="btn" onclick="filterSelection('hamburguesas')"> Hamburguesas</button>
+  <?php foreach($resultado_categ as $categ):?>
+    <button class="btn" onclick="filterSelection('<?php echo $categ['categoria'];?>')"> <?php echo $categ['categoria'];?></button>
+  <?php endforeach?>
 </div>
 
 <!-- Portfolio Gallery Grid -->
+<?php foreach($resultado as $dato):?>
 <div class=row>
-  <div class="column frutas">
+  <div class="column <?php echo $dato['categoria']?>">
     <div class="content">
-      <a href=infoFoto.php><img src="photos/pic1.jpg" alt="Frutas" style="width:100%"></a>
-      <h4>Fruits</h4>
-      <p>Las frutas son ricas</p>
+      <a href=infoFoto.php?id=<?php echo $dato['id']?>><img src="uploads/<?php echo $dato['nombre_foto']?>" alt="Frutas" style="width:100%"></a>
+      <h4><?php echo $dato['titulo']?></h4>
+      <p><?php echo $dato['descripcion']?></p>
     </div>
   </div>
-  <div class="column frutas">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic2.jpg" alt="Frutas" style="width:100%"></a>
-      <h4>Frutas </h4>
-      <p>Para el desayuno</p>
-    </div>
-  </div>
-  <div class="column frutas">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic5.jpg" alt="Frutas" style="width:100%"></a>
-      <h4>Frutitas</h4>
-      <p>Las frutas para snacks</p>
-    </div>
-  </div>
+<?php endforeach?>
 
-  <div class="column restaurantes">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic4.jpg" alt="restaurantes" style="width:100%"></a>
-      <h4>Retstorante</h4>
-      <p>yum yum restaurante!</p>
-    </div>
-  </div>
-  <div class="column restaurantes">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic10.jpg" alt="restaurantes" style="width:100%"></a>
-      <h4>Paletas</h4>
-      <p>Restaurantes de paletas</p>
-    </div>
-  </div>
-  <div class="column restaurantes">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic8.jpg" alt="restaurantes" style="width:100%"></a>
-      <h4>Para engordar</h4>
-      <p>Delicioso restaurante para engordar</p>
-    </div>
-  </div>
-
-  <div class="column hamburguesas">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic7.jpg" alt="hamburguesas" style="width:100%"></a>
-      <h4>Sandwich</h4>
-      <p>Sandwich que parece hamburguesa</p>
-    </div>
-  </div>
-  <div class="column hamburguesas">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic4.jpg" alt="hamburguesas" style="width:100%"></a>
-      <h4>Sushi</h4>
-      <p>¿Hamburguesa de sushi? mira donde puedes conseguirla</p>
-    </div>
-  </div>
-  <div class="column hamburguesas">
-    <div class="content">
-      <a href=infoFoto.php><img src="photos/pic9.jpg" alt="hamburguesas" style="width:100%"></a>
-      <h4>Woah!</h4>
-      <p>Las hamburguesas mas saludables que puedas comer</p>
-    </div>
-  </div>
 <!-- END GRID -->
 </div>
     </body>

@@ -8,12 +8,20 @@
   gtag('config', 'UA-126410717-1');
 </script>
 
+<?php
+include_once 'php/conexion.php';
+$sql_leer = 'SELECT * FROM fotos ORDER BY fecha DESC';
+$gsent = $pdo->prepare($sql_leer);
+$gsent->execute();
+
+$resultado = $gsent->fetchAll();
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en" >
     <head>
-
-
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="Cuoco" content="Cuoco Social Network" />
@@ -53,115 +61,16 @@
         <!-- main container -->
         <div class="main_container" >
 
-            <!-- pin element 1 -->
-            <div class="pin" >
-                <div class="holder">
-                    <a class="image ajax" href=infoFoto.php title="Photo number 1" pin_id="1">
-                        <img alt="Photo number 1" src="photos/pic1.jpg">
-                                        
-                     </a>
-                </div>
-
-            </div>
-
-            <!-- pin element 2 -->
+            <?php foreach($resultado as $dato):?>
             <div class="pin">
                 <div class="holder">
-                    <a class="image ajax" href=infoFoto.php title="Photo number 2">
-                        <img alt="Photo number 2" src="photos/pic2.jpg">
+                    <a class="image ajax" href=infoFoto.php?id=<?php echo $dato['id']?> title="<?php echo $dato['titulo'];?>" pin_id="<?php echo $dato['id']?>">
 
+                        <img alt="Photo number 1" src="uploads/<?php echo $dato['nombre_foto'];?>">
                     </a>
                 </div>
-
             </div>
-
-            <!-- pin element 3 -->
-            <div class="pin">
-                <div class="holder">
-                    <a class="image ajax" href=infoFoto.php title="Photo number 3">
-                        <img alt="Photo number 3" src="photos/pic3.jpg">
-                        <div id="mycursor"></div>
-                    </a>
-                </div>
-
-            </div>
-
-            <!-- pin element 4 -->
-            <div class="pin">
-                <div class="holder">
-                    <a class="image ajax" href=infoFoto.php title="Photo number 4">
-                        <img alt="Photo number 4" src="photos/pic4.jpg">
-
-                    </a>
-                </div>
-
-
-            </div>
-                <!-- pin element 5 -->
-                <div class="pin">
-                    <div class="holder">
-                        <a class="image ajax" href=infoFoto.php title="Photo number 1" pin_id="1">
-                            <img alt="Photo number 1" src="photos/pic5.jpg">
-                        </a>
-                    </div>
-
-
-                </div>
-                    <!-- pin element 6 -->
-            <div class="pin">
-                <div class="holder">
-                    <a class="image ajax" href=infoFoto.php title="Photo number 1" pin_id="1">
-                        <img alt="Photo number 1" src="photos/pic6.jpg">
-
-                    </a>
-                </div>
-
-            </div>
-    <!-- pin element 7 -->
-    <div class="pin">
-        <div class="holder">
-            <a class="image ajax" href=infoFoto.php title="Photo number 1" pin_id="1">
-                <img alt="Photo number 1" src="photos/pic7.jpg">
-
-            </a>
-        </div>
-
-
-    </div>
-        <!-- pin element 8 -->
-        <div class="pin">
-            <div class="holder">
-                <a class="image ajax" href=infoFoto.php title="Photo number 8" pin_id="1">
-                    <img alt="Photo number 1" src="photos/pic8.jpg">
-
-                </a>
-            </div>
-
-
-        </div>
-
-            <!-- pin element 9 -->
-            <div class="pin">
-                <div class="holder">
-                    <a class="image ajax" href=infoFoto.php title="Photo number 9" pin_id="1">
-
-                        <img alt="Photo number 1" src="photos/pic9.jpg">
-                    </a>
-                </div>
-
-            </div>
-    <!-- pin element 10 -->
-    <div class="pin">
-        <div class="holder">
-            <a class="image ajax" href=infoFoto.php title="Photo number 10" pin_id="1">
-
-                <img alt="Photo number 1" src="photos/pic10.jpg">
-            </a>
-        </div>
-
-    </div>
-
-
+            <?php endforeach?>
 
         </div>
     </body>

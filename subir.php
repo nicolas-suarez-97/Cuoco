@@ -37,18 +37,21 @@
 				<div style="width:100%;height:500px"> <img src="images/no-image.png"></div>
 			  </div>
 			  <div class="column">
-				<form action="php/subir_datos.php" method="POST">
+				<form action="php/subir_plato.php" method="POST" enctype="multipart/form-data">
                     <label for="fname">Título</label>                    
-                    <input type="text" id="fname" name="titulo" placeholder="Escribe tu nombre" required>
+                    <input type="text" id="fname" name="titulo"  required>
                     
                     <label for="lname">Link</label>
-                    <input type="text" id="lname" name="enlace" placeholder="Escribe tu email" required>														  				  
+                    <input type="text" id="lname" name="enlace"  required>														  				  
                     
                     <label for="subject">Descripción</label>
-                    <textarea id="subject" name="descripcion" placeholder="Escribe tu mensaje y nos comunicaremos contigo lo antes posible!" style="height:170px"></textarea required>
+                    <textarea id="subject" name="descripcion"  style="height:170px"></textarea required>
+
+                    <label for="lname">Categoría</label>
+                    <input type="text" id="lname" name="categ"  required>	
                     
-                    <input type="file" value="Foto">
-                    <input type="submit" value="Submit">
+                    <input type="file" name="file">
+                    <input type="submit" name="submit" value="Subir" >
                 </form>
 			  </div>
 			</div>
