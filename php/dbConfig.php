@@ -1,8 +1,5 @@
 <?php
 
-$link = 'mysql:host=localhost;dbname=cuoco';
-$usuario = 'root';
-$pass = '';
 
 try{
     $db = new mysqli("localhost","root","","cuoco");

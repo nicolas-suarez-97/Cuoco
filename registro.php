@@ -34,6 +34,12 @@
                 </div>
               
                 <div class="row" align="center">
+                  <label for="usuario"><b>Usuario</b></label>
+                </div>
+                <div class="row" align="center">
+                  <input type="text" placeholder="Ingresa tu usuario" name="usuario" required>
+                </div>
+                <div class="row" align="center">
                   <label for="nombre"><b>Nombre</b></label>
                 </div>
                 <div class="row" align="center">
@@ -57,6 +63,17 @@
                 <div class="row" align="center">
                         <input type="password" placeholder="Ingresa nuevamente tu contraseña" name="contrasena2" required>
                 </div>
+
+                <div class ="row" align="center">             
+                <form>
+                <?php foreach($resultado_categ as $categ):?>
+                <input type="checkbox" name="vehicle" value="<?php echo $categ['categoria'];?>"> <?php echo $categ['categoria'];?><br>
+                <?php endforeach?>
+                </form>
+                </div>
+
+
+
                 <div class ="row" align="center">             
                   <button type="submit"> Registrarme</button>
                 </div>

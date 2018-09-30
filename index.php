@@ -25,6 +25,7 @@ $resultado = $gsent->fetchAll();
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="Cuoco" content="Cuoco Social Network" />
+        <meta name="google-site-verification" content="LhJDkv3MOfYRSRn7QNvCAtcHLp3YQXrYhHog2AI6TUs" />
 
         
         <title>Cuoco</title>
@@ -40,6 +41,8 @@ $resultado = $gsent->fetchAll();
         <script src="js/jquery.min.js"></script>
         <script src="js/jquery.masonry.min.js"></script>
         <script src="js/script.js"></script>
+        <script type="text/javascriptt" src="jquery.js"></script>
+        <script type="text/javascript" src ="jquery.imagefit.js"></script>
     </head>
     <body class="wrap">
         <!--HEADER-->
@@ -59,19 +62,16 @@ $resultado = $gsent->fetchAll();
         <br>
         <?php endif?>
         <!-- main container -->
-        <div class="main_container" >
+        <section id="photos">
 
             <?php foreach($resultado as $dato):?>
-            <div class="pin">
-                <div class="holder">
+
                     <a class="image ajax" href=infoFoto.php?id=<?php echo $dato['id']?> title="<?php echo $dato['titulo'];?>" pin_id="<?php echo $dato['id']?>">
 
                         <img alt="Photo number 1" src="uploads/<?php echo $dato['nombre_foto'];?>">
                     </a>
-                </div>
-            </div>
-            <?php endforeach?>
 
-        </div>
+            <?php endforeach?>
+        </section>
     </body>
 </html>

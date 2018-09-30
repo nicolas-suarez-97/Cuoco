@@ -1,109 +1,156 @@
 /*TODO PARA LA PARTE DE EXPLORAR JUJUJU*/
 
-/* Add padding BETWEEN each column (if you want) */
+
 .row,
 .row > .column {
     padding: 5px;
 }
-
 /* Create three equal columns that floats next to each other */
 .column {
     float: left;
-    width: 18%;
+    width: auto;
     display: none; /* Hide columns by default */
 
 }
 
-/* Clear floats after rows */ 
-.row:after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/* Content */
-.content {
-    float: left;
-    background-color: rgb(255, 255, 255);
-    padding: 9px;
-    border-radius: 10px 10px 10px 10px;
-    position: relative; 
-    width: auto; 
-    margin-right: auto;
-	margin-left: auto;
-	margin: 0 auto; 
-  -webkit-transition: all 1s ease;
-  -moz-transition: all 1s ease;
-  -o-transition: all 1s ease;
-  transition: all 1s ease;	
-}
-
 /* The "show" class is added to the filtered elements */
 .show {
-    display: block;
-    position: relative;
+  display: block;
+  position: relative;
 }
 
 /* Style the buttons */
 .btn {
-  border: none;
-  border-radius: 10px 10px 10px 10px;
-  outline: none;
-  padding: 10px 40px;
-  background-color: rgb(255, 255, 255);
-  cursor: pointer;
-  font-size: 15px;
-  font-family: 'Overlock';
-  margin-bottom:5px;
-  margin-top: 10px;
-  margin-left: 5px;
+border: none;
+border-radius: 10px 10px 10px 10px;
+outline: none;
+padding: 10px 40px;
+background-color: rgb(255, 255, 255);
+cursor: pointer;
+font-size: 15px;
+font-family: 'Overlock';
+margin-bottom:5px;
+margin-top: 10px;
+margin-left: 5px;
 
 }
 
 /* Add a grey background color on mouse-over */
 .btn:hover {
-  background-color: orange;
-  color: #FFFFFF;
+background-color: orange;
+color: #FFFFFF;
 }
 
 /* Add a dark background color to the active button */
 .btn.active {
+background-color: orange;
+color: white;
+}
+
+#photos {
+  /* Prevent vertical gaps */
+  line-height: 0;
+  -webkit-column-count: 4;
+  -webkit-column-gap:   30px;
+  -moz-column-count:    4;
+  -moz-column-gap:      30px;
+  column-count:         4;
+  column-gap:           30px;  
+
+
+}
+
+#photos img {
+  /* Just in case there are inline attributes */
+  display: block;
+  width: 100% !important;
+  height: auto !important;
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+
+.overlay {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: rgba(0, 0, 0, 0.521);
+    border-radius:10px;
+}
+
+.text {
+ color: #fff;
+ font-size: 17px;
+ line-height: 1.5em;
+ text-shadow: 2px 2px 2px #000;
+ text-align: center;
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ width: 100%;
+ text-transform: uppercase;
+
+}
+
+.container {
+    position: relative;
+    width: 100%;
+}
+.container:hover .overlay {
+    opacity: 1;
+}
+
+div.scrollmenu {
+  background-color: rgba(255, 166, 0, 0);
+  overflow: auto;
+  white-space: nowrap;
+}
+
+div.scrollmenu a {
+  display: inline-block;
+  color: rgba(255, 166, 0, 0.39);
+  text-align: center;
+  padding: 14px;
+  text-decoration: none;
+}
+
+div.scrollmenu a:hover {
   background-color: orange;
-  color: white;
 }
 
-img{
-    border-radius: 10px;
-    min-width: auto;
-    min-height:auto ;
-}
-
-@media only screen and (max-width : 900px) {
-
-    .content {
-        background-color: rgb(255, 255, 255);
-        padding: 9px;
-        border-radius: 10px 10px 10px 10px;
-        max-width: 100px;
-        font-size: 12px;
-    }
-
-    .column {
-    float: left;
-    width: 30%;
-    align-content: center;
-    }
-    /* Style the buttons */
-.btn {
-    border: none;
-    border-radius: 10px 10px 10px 10px;
-    outline: none;
-    padding: 10px 20px;
-    background-color: rgb(255, 255, 255);
-    cursor: pointer;
-    font-size: 12px;
-    font-family: 'Overlock';
+@media (max-width: 1200px) {
+  #photos {
+  -moz-column-count:    5;
+  -webkit-column-count: 5;
+  column-count:         5;
   }
-  
-
 }
+@media (max-width: 1000px) {
+  #photos {
+  -moz-column-count:    4;
+  -webkit-column-count: 4;
+  column-count:         4;
+  }
+}
+@media (max-width: 800px) {
+  #photos {
+  -moz-column-count:    3;
+  -webkit-column-count: 3;
+  column-count:         3;
+  }
+}
+@media (max-width: 400px) {
+  #photos {
+  -moz-column-count:    2;
+  -webkit-column-count: 2;
+  column-count:         2;
+  }
+}
+

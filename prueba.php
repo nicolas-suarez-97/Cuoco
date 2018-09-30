@@ -9,14 +9,12 @@
 <body>
     <div class="container">
         <div class="upfrm">
-            <form action="php/subir_imagen.php" method="POST" enctype="multipart/form-data">
+            <form action="subir_imagen.php" method="POST" enctype="multipart/form-data">
                 Select Image File To Upload
                 <input type="file" name="file">
                 <input type="submit" name="submit" value="Upload">
             </form>
         </div>
-
-
         <div class="gallery">
             <h2>Uploaded Images</h2>
             <?php
@@ -38,6 +36,8 @@
 
                 }
             ?>
+
+
         </div>
     </div>
 </body>

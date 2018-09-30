@@ -15,14 +15,10 @@ $resultado = $gsent->fetchAll();
 <!DOCTYPE html>
 <html lang="en" >
     <head>
-
-
-
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta name="Cuoco" content="Cuoco Social Network" />
 
-        
         <title>Explorar</title>
 
         <!-- add styles -->
@@ -43,34 +39,40 @@ $resultado = $gsent->fetchAll();
        <!--HEADER-->
        <?php include 'header.php'?>
 
-<br>
-<div id="myBtnContainer" clas="wrap">
-  <button class="btn" id ="todos" onclick="filterSelection('all')"> Todos</button>
-  <script>
+        <br>
+        <div id="myBtnContainer" class="scrollmenu">
+            <button class="btn" id ="todos" onclick="filterSelection('all')"> Todos</button>
+            <script>
 
-      $(document).ready(function(){
-          document.getElementById("todos").click();
-      });
+                $(document).ready(function(){
+                    document.getElementById("todos").click();
+                });
 
-  </script>
-  <?php foreach($resultado_categ as $categ):?>
-    <button class="btn" onclick="filterSelection('<?php echo $categ['categoria'];?>')"> <?php echo $categ['categoria'];?></button>
-  <?php endforeach?>
-</div>
+            </script>
+
+            <?php foreach($resultado_categ as $categ):?>
+                <button class="btn" onclick="filterSelection('<?php echo $categ['categoria'];?>')"> <?php echo $categ['categoria'];?></button>
+            <?php endforeach?>
+        </div>
 
 <!-- Portfolio Gallery Grid -->
-<?php foreach($resultado as $dato):?>
-<div class=row>
-  <div class="column <?php echo $dato['categoria']?>">
-    <div class="content">
-      <a href=infoFoto.php?id=<?php echo $dato['id']?>><img src="uploads/<?php echo $dato['nombre_foto']?>" alt="Frutas" style="width:100%"></a>
-      <h4><?php echo $dato['titulo']?></h4>
-      <p><?php echo $dato['descripcion']?></p>
-    </div>
-  </div>
-<?php endforeach?>
 
-<!-- END GRID -->
-</div>
+        <section id="photos">
+            <?php foreach($resultado as $dato):?>
+
+                <div class="column <?php echo $dato['categoria']?>">
+                    <div class="container">
+                        <div class="content">
+                            <a ><img src="uploads/<?php echo $dato['nombre_foto']?>" alt="IMAGEN" style="width:100%"></a>
+                            <a class="overlay" href=infoFoto.php?id=<?php echo $dato['id']?>>
+                                <div class="text"><?php echo $dato['titulo']?></div>
+                            </a>    
+                        </div>
+                    </div>
+
+                </div>
+                <!-- END GRID -->
+            <?php endforeach?>
+        </section>
     </body>
 </html>

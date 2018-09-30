@@ -44,9 +44,9 @@
 						<label for="lname">Email</label>
 				  	<input type="text" id="lname" name="email_usu" placeholder="Escribe tu email">
 					<?php else:?>
-						<input type="text" id="fname" name="nombre_usu" placeholder="Escribe tu nombre" >
+						<input type="text" id="fname" name="nombre_usu" placeholder="Escribe tu nombre" value=<?php echo $_SESSION['admin']?>>
 						<label for="lname">Email</label>
-				  	<input type="text" id="lname" name="email_usu" placeholder="Escribe tu email" value=<?php echo $_SESSION['admin']?>>
+				  	<input type="text" id="lname" name="email_usu" placeholder="Escribe tu email" >
 					<?php endif?>
 				  
 				  <label for="country">Motivo de contacto</label>
@@ -59,7 +59,7 @@
 				  </select>
 				  <label for="subject">Mensaje</label>
 				  <textarea id="subject" name="subject" placeholder="Escribe tu mensaje y nos comunicaremos contigo lo antes posible!" style="height:170px"></textarea>
-				  <input type="submit" value="Submit">
+				  <input type="submit" value="Enviar">
 				</form>
 			  </div>
 			</div>
